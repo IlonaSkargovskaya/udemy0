@@ -2,30 +2,30 @@
 
 //пишем в виде CamelCase - глаголом
 
-//анонимные функции вызываются только здесь и сейчас и к ней нельзя будет потом обратиться
+// //анонимные функции вызываются только здесь и сейчас и к ней нельзя будет потом обратиться
 
-let num = 20;
-function showFirstMessage(text) {
-    console.log(text);    
-    num = 10;
-}
+// let num = 20;
+// function showFirstMessage(text) {
+//     console.log(text);    
+//     num = 10;
+// }
 
-showFirstMessage('Hello world');
-console.log(num);  
+// showFirstMessage('Hello world');
+// console.log(num);  
 
 
 // Аргументы функции
 
-const usdCurr = 28;
-const euroCurr = 32;
+// const usdCurr = 28;
+// const euroCurr = 32;
 
-function convert (amount, curr) {
-    console.log(curr * amount);
-}
+// function convert (amount, curr) {
+//     console.log(curr * amount);
+// }
 
 //в данном варианте мы передаем 1 параметру число amount, а второму присваиваем значение переменной UsdCurr куда могут поступать любые данные отовсюду
-convert(30, usdCurr);
-convert(30, euroCurr);
+// convert(30, usdCurr);
+// convert(30, euroCurr);
 
 
 //Замыкание функции
@@ -33,9 +33,6 @@ convert(30, euroCurr);
 // если функция не нашла переменную внутри себя - она пошла наверх искать
 
 
-
-//return - возвращает значение работы функции во внешний мир
-// - как только функция находит слово - она завершается
 
 
 
@@ -64,3 +61,50 @@ convert(30, euroCurr);
 // };
 
 // console.log(calc(1, 5));
+
+
+
+
+
+//return - возвращает значение работы функции во внешний мир. Оно всегда нужно когда нужно получить итоговый результат функции и использовать его дальше где-то
+// - как только функция находит слово - она завершается
+
+
+// const usdCurr = 28;
+// const discount = 0.9;
+
+// function convert(amount, curr) {
+//     return (amount * curr);
+// }
+
+// function promotion (result) {
+//     console.log(result * discount);
+// }
+
+// //сначала передаем аргументы в функцию convert при вызове, return вернет нам результат работы этой функции а затем этот результат мы используем как аргумент result функции promotion
+// promotion(convert(10, usdCurr));
+
+
+// function test() {
+//     for (let i = 0; i < 5; i++){
+//         console.log(i);
+//         if(i === 3) {
+//             return; // можно не break писать а завершить сразу всю функцию, при этом функция вернет undefined
+//         }
+//     }
+//     console.log('Done');
+// }
+
+// test();
+
+
+function getMathResult (num, count) {
+   let result = '';
+
+   for (let i = 0; i < count; i++) {
+        
+   }
+}
+
+console.log(getMathResult(4, 3));
+
