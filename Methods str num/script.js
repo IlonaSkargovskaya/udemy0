@@ -47,6 +47,12 @@
 // console.log(logg.substr(0, 13));
 
 
+// trim()
+// удаляет пробельные символы в начале и вконце строки
+// прим: let str = '    rktjnrkjtgn';
+// console.log(str.trim()); // удалятся вначале все пробелы
+
+
 
             //Number
 
@@ -64,4 +70,15 @@ console.log(parseInt(test)); // 12
 console.log(parseFloat(test)); //12.2
 
 
+//isInteger() - проверяет является ли число целым
+
+//!Number.isInteger(a) = "число не целое"
+
+//проверка является ли числом или строкой: typeof(a) === 'number'
+
+//Math.ceil(num) - округление в большую сторону до целого (7.004 = 8)
+
+//Math.floor()- округляет в меньшую сторону (5.95 = 5)
+
+//Math.max - максимальное из чисел
 

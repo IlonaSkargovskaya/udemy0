@@ -26,3 +26,14 @@ const leftBorderWidth = 1; // нельзя перезаписать, но ста
 
 //PascalCase
 // - обычно пишутся классы так
+
+
+let obj = {
+    'Kola' : 500,
+    'Vasa' : 1000,
+    'Peta' : 200,
+};
+
+console.log(obj['Kola'] + obj['Peta']); //Обращаемся через кв.скобки к ключам
+
+
