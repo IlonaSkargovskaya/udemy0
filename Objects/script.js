@@ -157,3 +157,4 @@ const newOb = {...q}; //создали поверхн.копию q
 newOb['one'] = 4; //изменили
 
 console.log(newOb);
+console.log(q);
