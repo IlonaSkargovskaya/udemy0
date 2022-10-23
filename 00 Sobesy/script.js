@@ -43,3 +43,16 @@ console.log('Ежик' > 'яблоко'); // false, тк решается чер
 
 console.log(0 || "" || 2 || undefined || true || falsе ); // 2 потому что запнемся на первой правде
 
+
+
+
+// Является ли строка Панграммой
+function isPangram(string) {
+    string = string.toLowerCase();
+    return "abcdefghijklmnopqrstuvwxyz".split("").every(function(x){
+      return string.indexOf(x) !== -1;
+    });
+}
+
+console.log(isPangram('The quick brown fox jumps over the lazy dog'));
+

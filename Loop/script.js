@@ -66,3 +66,31 @@ let num = 50;
 // }
 
 // console.log(result);
+
+
+        // Разница между циклами for in и for of 
+
+/* 
+
+for in - для {} (тк не учитывает порядок индексов)
+
+for of - для [], '', Map, Set, DOM-collection (строго по порядку выводит)
+
+*/
+
+
+
+// при обходе массивов
+const arr = [1, 4, 7];
+arr[3] = 'Hi';
+
+for (let item in arr) {
+    console.log(item); // выведет индексы 0, 1, 2, 3
+}
+
+for (let item of arr) {
+    console.log(item); // выведет значения по порядку 1, 4, 7, Hi
+}
+
+
+

@@ -153,3 +153,57 @@
 // });
 
 
+
+
+
+
+//DOM Content Loaded - тогда когда DOM дерево полностью загрузилось
+
+document.addEventListener('DOMContentLoaded',() => {'сюда пишем структуру нашего JS'})
+
+
+
+
+            //События на мобильных устройствах
+
+//тапы
+
+//touchstart - когда коснулись пальцем элемента
+//touchmove - когда палец двигается на элементе
+//touchend - когда палец ушел с элемента
+
+//touchenter - когда ведем пальцем по экрану и наезжаем на другой блок
+//touchleave - когда съехали пальцем с блока
+//touechcancel - когда палец вышел за пределы браузера
+
+
+document.addEventListener('DOMContentLoaded',() => {
+
+    const box = document.querySelector('.box');
+
+    box.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+
+        console.log('Start');
+        console.log(e.targetTouches);
+    });
+
+    box.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+
+        //можно получить координаты при движении первого пальца
+        console.log(e.targetTouches[0].pageX);
+    });
+
+    // box.addEventListener('touchend', (e) => {
+    //     e.preventDefault();
+
+    //     console.log('End');
+    // });
+
+});
+
+
+// touches - покажет список всех пальцев которые сейчас на экране
+// targetTouches - покажет на каком конкретно элементе сейчас палец
+// changedTouches - список пальцев которые сейчас участвуют в событии. 

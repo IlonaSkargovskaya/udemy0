@@ -21,7 +21,7 @@ console.log(document.body.lastChild);
 console.log(document.body.lastElementChild);
 
 
-// Обращение к соседям, родителям, детям и их изменение
+// Обращение к родителям
 
 //получаем родителя у заданного ребенка 
 console.log(document.querySelector('#current').parentNode);
