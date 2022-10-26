@@ -70,6 +70,38 @@
 
 
 
+            //Делегирование событий
+
+// бывает что нужно повесить одинаковое событие сразу на много элементов
+// тогда мы берем оболочку блока и назначаем ей обработчик, а затем внутри проверяем на какой конкретно элемент нужно кликнуть чтобы событие произошло
+
+//получаем все кнопки со страницы
+const btns = document.querySelectorAll('button'),
+//получаем родительский блок
+    wrapper = document.querySelector('.btn-block');
+
+wrapper.addEventListener('click', (event) => {
+
+    //если на элементе присутствует класс blue - то
+    // if (event.target && event.target.classList.contains('blue')) {
+    //     console.log('hello');
+    // }
+
+    //matches() - сравнивает элементы: равны ли они такому-то условию
+    // if (event.target && event.target.matches('button.red')) {
+    //     console.log('hello');
+    // }
+    
+    
+    // если нажимаем именно на ребенка у которого tagName == BUTTON
+    if (event.target && event.target.tagName == 'BUTTON') {
+        console.log('hello');
+    }
+});
+
+
+
+
 //         //всплытие событий
 
 // /* 
@@ -207,3 +239,7 @@ document.addEventListener('DOMContentLoaded',() => {
 // touches - покажет список всех пальцев которые сейчас на экране
 // targetTouches - покажет на каком конкретно элементе сейчас палец
 // changedTouches - список пальцев которые сейчас участвуют в событии. 
+
+
+
+           

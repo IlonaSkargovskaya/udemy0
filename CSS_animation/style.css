@@ -1,0 +1,234 @@
+
+/*Обнуление*/
+*,
+*:before,
+*:after {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+html,
+body {
+	height: 100%;
+	background-color: #333;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	color: #fff;
+	font-size: 16px;
+	line-height: 24px;
+}
+a {
+	color: #794f45;
+}
+h1 {
+	font-size: 40px;
+	margin: 0px 0px 50px 0px;
+}
+h2 {
+	font-size: 30px;
+	margin: 0px 0px 20px 0px;
+}
+p {
+	margin: 20px 0;
+}
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+}
+
+.content {
+	padding: 30px 3%;
+}
+.content__block {
+	margin: 0px 0px 50px 0px;
+}
+
+
+/* CSS-переходы */
+
+/* transition-duration  - в течении какого времени будет происходить переход*/
+
+.button{
+    text-decoration: none;
+    display: inline-block;
+    padding: 0 30px;
+    text-transform: uppercase;
+    line-height: 60px;
+    letter-spacing: 2px;
+    font-size: 18px;
+    border-radius: 10px;
+    background-color: #5e5373;
+    color: #fff;
+    box-shadow: 0 5px 0px #3c354a;
+    position: relative;
+    top: 0;
+    border-width: 0px;
+    
+    transition-property: background-color, top;
+    transition-duration: 1s, 100ms;
+    /* transition-delay: 0s, 0.5s; - background-color сработает через 0s, а top - через 0,5s */
+}
+
+.button:hover{
+    top:2px;
+    box-shadow: 0 3px 0 #3c354a;
+    background-color: #18b5a4;
+    cursor: pointer;
+}
+
+/* transition: transition-property transition-duration transition-timing-function transition-delay; */
+
+/* transition: padding: 1s ease 0s, color 2s ease-in 5s; */
+
+/* transition-property - содержит названия CSS-свойств к которым будет применен эффект перехода
+по умолчанию - all*/
+
+/* transition-delay - позволяет делать задержку анимации */
+
+/* transition-timing-function - по умолчанию ease Бывают ease-in, ease-in-out, ease-out, linear, steps(10, start), cubic-bezier */
+
+
+
+/* Если нужна анимация и на вход и на выход - то пишем transition не на hover */
+/* Можно установить Transition и на блок и на hover с разными значениями - тогда анимация будет работать по-разному */
+
+
+
+
+                /* CSS-анимация и keyframes */
+
+.content-circle{
+    width:50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 30px;
+    position: relative;
+
+    animation-name: white-circle;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    /* animation-iteration-count: infinite; */
+    animation-delay: 1s;
+}
+
+/* animation:  white-circle 2s linear infinite 1s forwards*/
+/* animation:  по порядку все свойства начиная с animation-name*/
+
+/* animation - можно подключать несколько keyframes через запятую */
+
+
+/* animation-name: название анимации;
+animation-duration: как долго длится анимация;
+animation-timing-function: как вычисляются промежуточные состояния;
+animation-delay: анимация начинается спустя некоторое время;
+animation-iteration-count: сколько раз должна выполняться анимация;
+animation-direction: должно движение идти в обратную сторону или нет;
+animation-fill-mode: какие стили применяются до начала анимации и после её завершения.
+
+
+
+
+*/
+
+
+
+@keyframes white-circle {
+    0%{
+        left:0;
+    }
+
+    50%{
+        border-radius:0px;
+    }
+
+    100%{
+        left: 500px;
+    }
+}
+
+
+
+
+
+            /* CSS-трансформация - масштабирование, переворот, 2D-3D анимация и тд*/
+
+/* transform применим только к блочным элементам, для псевдоэлементов ставим display: inline-block*/
+
+
+/* Основные стили */
+
+
+.content__2D .content__block div {
+	display: flex;
+	text-transform: uppercase;
+	justify-content: center;
+	align-items: center;
+	letter-spacing: 1px;
+	text-align: center;
+	width: 150px;
+	height: 150px;
+	transition: all 0.8s ease 0s;
+}
+
+
+/* translate (смещение по горизонтали Х, по  вертикали У) при этом если в % то задается от ширины объекта*/
+.content__translate {
+    transform: translate(0%, 0px);
+    background-color: #794f45;
+}
+
+/* scale - зумирует элементы. Делает больше или меньше. По умолчанию - 1 */
+.content__scale {
+    transform: scale(1, 1);
+    background-color: #456234;
+}
+
+.content__scale:hover {
+    transform: scale(0.5, 0.5);
+    /* transform: scale(-1, 1); повернется зеркально */
+}
+
+/* rotate - повернет объект на n-градусов */
+.content__rotate {
+    transform: rotate(45deg);
+    background-color: yellow;
+}
+.content__skew {
+}
+.content__matrix {
+}
+.content__multi {
+}
+.content__transform-origin {
+}
+.content__3D {
+}
+.content__wrapper3d {
+}
+.content__perspective {
+}
+.content__translate3D {
+}
+.content__scale3D {
+}
+.content__rotate3d {
+}
+.content__matrix3d {
+}
+.content__multi3d {
+}
+.content__transform-style-wrapper {
+}
+.content__transform-style {
+}
+.flip {
+}
+.flip__body {
+}
+.flip__front {
+}
+.flip__back {
+}
+
+
