@@ -28,14 +28,14 @@ shops.forEach((shop, i) => {
     map.set(shop, budjet[i]);
 });
 
-console.log(map);
+console.log(map); // {{…} => 8000, {…} => 12000, {…} => 2000, ...
 
 
 //map.get(key) – получаем значение по ключу или undefined, если ключ key отсутствует.
-console.log(map.get(shops[0]));
+console.log(map.get(shops[0])); // 5000
 
 //map.has(key) – проверяем наличие чего-то внутри. возвращает true, если ключ key присутствует в коллекции, иначе false.
-console.log(map.has(shops[2]));
+console.log(map.has(shops[2])); // true
 
 // map.delete(key) – удаляет элемент по ключу key.
 // map.clear() – очищает коллекцию от всех элементов.
@@ -43,10 +43,10 @@ console.log(map.has(shops[2]));
 
 
 
-//Перебор MAP
+            //Перебор MAP
 
 // map.keys() - получаем массив ключей 
-console.log(map.keys());
+console.log(map.keys()); // [[{paper: 400}, {juice: 300} ...]]
 
 //for ... of - вывести ключи карты по отдельности
 for (let shop of map.keys()) {
@@ -108,5 +108,17 @@ console.log(userMap);
 const newUserObject = Object.fromEntries(userMap);
 console.log(newUserObject);
 
+
+
+
+//Превратить массив массивов в объект {ключ:значение}
+let array = [["white", "goodness"],  ["blue", "tranquility"]]; 
+//returns [{white: 'goodness'}, ...]
+
+const obj1 = Object.fromEntries(array);
+const result = Object.entries(obj1).map((item) => ({
+    [item[0]]: item[1]
+}));
+console.log(result);
 
 

@@ -235,6 +235,10 @@ console.log(secondCount()); //3
 
 
 
-let time = '';
-5 > 3 || 2 ? time = 'Day' : time = 'Night' ;
-console.log(time);
+             //Параметры по умолчанию
+
+function calcOrDouble(number, basis = 3) {
+    console.log(number * basis);
+}
+
+calcOrDouble(3); // 9

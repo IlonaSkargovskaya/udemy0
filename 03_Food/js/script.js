@@ -217,7 +217,7 @@ setClock('.timer', deadline);
 
     // 1. Создаем класс-конструктор для карточки с теми аргументами которые нам нужны
     class MenuCard {
-        constructor(src, alt, title, descr, price, parentSelector) {
+        constructor(src, alt, title, descr, price, parentSelector, ...classes) {
             this.src = src;
             this.alt = alt;
             this.title = title;
@@ -225,8 +225,11 @@ setClock('.timer', deadline);
             this.price = price;
             //нужно сказать "Куда" пихать наши карточки - поэтому получаем со страницы parentSelector который потом будем передавать при вызове      
             this.parent = document.querySelector(parentSelector);
+            this.classes = classes; //передаем rest-оператором массив возможных будущих классов для кастомизации элемента
+
             this.transfer = 3.5; //конвертация валюты
             this.changeToILS(); //вызываем метод конвертации
+            
         }
 // предположим что из БД нам приходит валюта в долларах - а на страницу надо вывести в шекелях - создаем метод
         changeToILS() {
@@ -236,18 +239,32 @@ setClock('.timer', deadline);
         render() {
             //создаем переменную с новым дивом
             const element = document.createElement('div');
+
+
+
+            //если же в массив не передан ни один класс - ставим по умолчанию menu__item
+
+            //если длина массива this.classes == 0 то
+            if (this.classes.length === 0) {
+               element.classList.add('menu__item'); // присваиваем элементу дефолтный
+            } else {
+                //перебираем массив classes, достаем имя каждого класса и добавляем к созданному element, при этом запоминаем что оберткой у карточки было menu__item
+                this.classes.forEach((className) => {
+                    element.classList.add(className);
+                });
+            }
+
+
             //в новый див помещаем нашу верстку
-            element.innerHTML = `
-                <div class="menu__item">
-                    <img src=${this.src} alt=${this.alt} >
-                    <h3 class="menu__item-subtitle">${this.title} </h3>
-                    <div class="menu__item-descr">${this.descr}</div>
-                    <div class="menu__item-divider"></div>
-                    <div class="menu__item-price">
-                        <div class="menu__item-cost">Цена:</div>
-                        <div class="menu__item-total"><span>${this.price}</span> ILS/day</div>
-                    </div>
-                </div>
+            element.innerHTML = `                
+                <img src=${this.src} alt=${this.alt} >
+                <h3 class="menu__item-subtitle">${this.title} </h3>
+                <div class="menu__item-descr">${this.descr}</div>
+                <div class="menu__item-divider"></div>
+                <div class="menu__item-price">
+                    <div class="menu__item-cost">Цена:</div>
+                    <div class="menu__item-total"><span>${this.price}</span> ILS/day</div>
+                </div>                
             `;
 
             //обращаемся к родителю и перед закрывающимся тегом вставляем новый элемент
@@ -262,7 +279,8 @@ setClock('.timer', deadline);
         'Меню "Фитнес"',
         'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
         29,
-        '.menu .container'
+        '.menu .container',
+        'menu__item'
     ).render();
 
     new MenuCard(
@@ -271,7 +289,8 @@ setClock('.timer', deadline);
         'Меню “Премиум”',
         'В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!',
         100,
-        '.menu .container'
+        '.menu .container',
+        
     ).render();
 
     new MenuCard(
@@ -280,8 +299,32 @@ setClock('.timer', deadline);
         'Меню "Постное"',
         'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.',
         79,
-        '.menu .container'
+        '.menu .container',
+        'menu__item',
+        'big'
     ).render();
     
 
 });
+
+
+
+const urlObj = {
+    protocol: 'https',
+    domain: 'mysite.com'
+}
+ 
+function showCurrentURL() {
+    const extractCurrDomain = () => {
+        return this.domain;
+    }
+    const extractCurrProtocol = () => {
+        return this.protocol;
+    }
+ 
+    console.log(`${extractCurrProtocol()}://${extractCurrDomain()}`)
+}
+ 
+const url = showCurrentURL.bind(urlObj);
+ 
+console.log(url);
