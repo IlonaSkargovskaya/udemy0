@@ -93,8 +93,4 @@
 // // personalMovieDB.toggleVisibleMyDB(personalMovieDB.privat);
 
 
-function hello2(name) {
-    console.log(`Привет, ${name}`);
-}
 
-hello2('Василий');

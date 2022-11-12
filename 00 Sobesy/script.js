@@ -56,3 +56,42 @@ function isPangram(string) {
 
 console.log(isPangram('The quick brown fox jumps over the lazy dog'));
 
+
+
+
+//Проверка на Палиндром
+
+function isPalindrome(x) {
+    if (x.toLowerCase() === x.toLowerCase().split('').reverse().join('')){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+console.log(isPalindrome('aba')); //true
+console.log(isPalindrome('AbBa')); // true
+console.log(isPalindrome('Abra')); // false
+
+
+
+//Удалить все восклицат знаки
+
+function removeExclamationMarks(s) {
+    let newStr = '';
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] !== '!') {
+            newStr += s[i];
+        }
+    }
+    console.log(newStr);
+}
+
+removeExclamationMarks('Hello World!');
+
+
+
+
+
+
+
